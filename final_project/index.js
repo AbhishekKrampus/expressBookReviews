@@ -1,22 +1,48 @@
 const express = require('express');
+const session = require('express-session');
 const jwt = require('jsonwebtoken');
-const session = require('express-session')
-const customer_routes = require('./router/auth_users.js').authenticated;
-const genl_routes = require('./router/general.js').general;
+const customerRoutes = require('./router/auth_users.js').authenticated;
+const generalRoutes = require('./router/general.js').general;
 
 const app = express();
+const PORT = process.env.PORT || 5000;
+const JWT_SECRET = process.env.JWT_SECRET || 'access';
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/customer', session({
+  secret: process.env.SESSION_SECRET || 'fingerprint_customer',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { httpOnly: true, sameSite: 'lax' }
+}));
 
-app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUninitialized: true}))
+// Protected customer routes require a valid login session/JWT.
+app.use('/customer/auth/*', (req, res, next) => {
+  const header = req.get('Authorization') || '';
+  const bearerToken = header.startsWith('Bearer ') ? header.slice(7) : null;
+  const sessionToken = req.session && req.session.authorization && req.session.authorization.accessToken;
+  const token = bearerToken || sessionToken;
 
-app.use("/customer/auth/*", function auth(req,res,next){
-//Write the authenication mechanism here
+  if (!token) {
+    return res.status(401).json({ message: 'User not logged in' });
+  }
+
+  jwt.verify(token, JWT_SECRET, (error, decoded) => {
+    if (error) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+    req.user = decoded;
+    if (req.session && decoded.username) {
+      req.session.username = decoded.username;
+    }
+    return next();
+  });
 });
- 
-const PORT =5000;
 
-app.use("/customer", customer_routes);
-app.use("/", genl_routes);
+app.use('/customer', customerRoutes);
+app.use('/', generalRoutes);
 
-app.listen(PORT,()=>console.log("Server is running"));
+app.get('/health', (req, res) => res.json({ status: 'ok' }));
+
+app.listen(PORT, () => console.log(`Book Review API listening on port ${PORT}`));

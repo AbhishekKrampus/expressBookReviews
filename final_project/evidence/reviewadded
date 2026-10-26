@@ -1,0 +1,4 @@
+﻿curl.exe -s -b "C:\Users\KRAMPUS\Documents\expressBookReviews-work\final_project\evidence\cookies.txt" -X PUT "http://localhost:5000/customer/auth/review/1?review=Excellent%20book%20with%20a%20powerful%20message"
+{"message":"User not logged in"}
+curl.exe -s http://localhost:5000/review/1
+{"reviews":{}}
