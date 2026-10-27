@@ -1,0 +1,128 @@
+{
+  "task2": {
+    "cmd": "GET http://localhost:5000/",
+    "status": 200,
+    "body": {
+      "1": {
+        "author": "Chinua Achebe",
+        "title": "Things Fall Apart",
+        "reviews": {}
+      },
+      "2": {
+        "author": "Hans Christian Andersen",
+        "title": "Fairy tales",
+        "reviews": {}
+      },
+      "3": {
+        "author": "Dante Alighieri",
+        "title": "The Divine Comedy",
+        "reviews": {}
+      },
+      "4": {
+        "author": "Unknown",
+        "title": "The Epic Of Gilgamesh",
+        "reviews": {}
+      },
+      "5": {
+        "author": "Unknown",
+        "title": "The Book Of Job",
+        "reviews": {}
+      },
+      "6": {
+        "author": "Unknown",
+        "title": "One Thousand and One Nights",
+        "reviews": {}
+      },
+      "7": {
+        "author": "Unknown",
+        "title": "Njál's Saga",
+        "reviews": {}
+      },
+      "8": {
+        "author": "Jane Austen",
+        "title": "Pride and Prejudice",
+        "reviews": {}
+      },
+      "9": {
+        "author": "Honoré de Balzac",
+        "title": "Le Père Goriot",
+        "reviews": {}
+      },
+      "10": {
+        "author": "Samuel Beckett",
+        "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+        "reviews": {}
+      }
+    }
+  },
+  "task3": {
+    "cmd": "GET http://localhost:5000/isbn/1",
+    "status": 200,
+    "body": {
+      "author": "Chinua Achebe",
+      "title": "Things Fall Apart",
+      "reviews": {}
+    }
+  },
+  "task4": {
+    "cmd": "GET http://localhost:5000/author/Jane%20Austen",
+    "status": 200,
+    "body": {
+      "booksByAuthor": {
+        "8": {
+          "author": "Jane Austen",
+          "title": "Pride and Prejudice",
+          "reviews": {}
+        }
+      }
+    }
+  },
+  "task5": {
+    "cmd": "GET http://localhost:5000/title/Fairy%20tales",
+    "status": 200,
+    "body": {
+      "booksByTitle": {
+        "2": {
+          "author": "Hans Christian Andersen",
+          "title": "Fairy tales",
+          "reviews": {}
+        }
+      }
+    }
+  },
+  "task6": {
+    "cmd": "GET http://localhost:5000/review/1",
+    "status": 200,
+    "body": {}
+  },
+  "task7": {
+    "cmd": "POST http://localhost:5000/register  body:{username:testuser_ibm,password:testpass123}",
+    "status": 200,
+    "body": {
+      "message": "User successfully registered. Now you can login"
+    }
+  },
+  "task8": {
+    "cmd": "POST http://localhost:5000/customer/login  body:{username:testuser_ibm,password:testpass123}",
+    "status": 200,
+    "body": {
+      "message": "User successfully logged in"
+    }
+  },
+  "task9": {
+    "cmd": "PUT http://localhost:5000/customer/auth/review/1?review=GreatBook-ThingsFallApart",
+    "status": 200,
+    "body": {
+      "message": "Review for ISBN 1 added/updated",
+      "reviews": {}
+    }
+  },
+  "task10": {
+    "cmd": "DELETE http://localhost:5000/customer/auth/review/1",
+    "status": 200,
+    "body": {
+      "message": "Review for ISBN 1 by testuser_ibm2 deleted",
+      "reviews": {}
+    }
+  }
+}

@@ -1,0 +1,18 @@
+﻿TASK 5: Get Books by Title
+===========================
+Command: curl -X GET "http://localhost:5000/title/Fairy%20tales"
+
+Status Code: 200 OK
+
+Response:
+{
+  "booksByTitle": {
+    "2": {
+      "author": "Hans Christian Andersen",
+      "title": "Fairy tales",
+      "reviews": {}
+    }
+  }
+}
+
+Test Result: PASS (HTTP 200, correct book returned for title 'Fairy tales')

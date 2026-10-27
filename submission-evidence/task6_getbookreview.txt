@@ -1,0 +1,14 @@
+﻿TASK 6: Get Book Review
+========================
+Command: curl -X GET http://localhost:5000/review/1
+
+Status Code: 200 OK
+
+Response (initial state - no reviews yet):
+{}
+
+Note: Reviews object is empty on first request, as expected.
+After adding a review (Task 9), the same endpoint returns:
+{"testuser_ibm": "GreatBook-ThingsFallApart"}
+
+Test Result: PASS (HTTP 200, reviews object returned correctly)

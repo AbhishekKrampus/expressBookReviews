@@ -1,6 +1,9 @@
 # Distribution / packaging
 node_modules
 
+# Test utilities
+final_project/run_tests.js
 
-
-final_project/evidence/
+# Environment files
+.env
+*.env

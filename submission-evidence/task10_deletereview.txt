@@ -1,0 +1,22 @@
+﻿TASK 10: Delete a Book Review (Authenticated)
+==============================================
+Step 1 - Login first (see Task 8) to get session cookie.
+Step 2 - Add a review (see Task 9).
+
+Step 3 - Delete review:
+  curl -X DELETE http://localhost:5000/customer/auth/review/1 \
+       -b cookies.txt
+
+Status Code: 200 OK
+
+Response:
+{
+  "message": "Review for ISBN 1 by user testuser_ibm deleted successfully",
+  "reviews": {}
+}
+
+Verification - GET /review/1 after delete:
+  curl http://localhost:5000/review/1
+  Response: {}
+
+Test Result: PASS (HTTP 200, review deleted, reviews object is empty again)

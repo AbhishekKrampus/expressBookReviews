@@ -1,0 +1,14 @@
+﻿TASK 3: Get Book Details by ISBN
+==================================
+Command: curl -X GET http://localhost:5000/isbn/1
+
+Status Code: 200 OK
+
+Response:
+{
+  "author": "Chinua Achebe",
+  "title": "Things Fall Apart",
+  "reviews": {}
+}
+
+Test Result: PASS (HTTP 200, correct book returned for ISBN 1)

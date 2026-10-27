@@ -1,0 +1,23 @@
+﻿TASK 9: Add / Update a Book Review (Authenticated)
+====================================================
+Step 1 - Login first (see Task 8) to get session cookie.
+
+Step 2 - Add review:
+  curl -X PUT "http://localhost:5000/customer/auth/review/1?review=GreatBook-ThingsFallApart" \
+       -b cookies.txt
+
+Status Code: 200 OK
+
+Response:
+{
+  "message": "Review for ISBN 1 has been added/updated successfully",
+  "reviews": {
+    "testuser_ibm": "GreatBook-ThingsFallApart"
+  }
+}
+
+Verification - GET /review/1 after adding:
+  curl http://localhost:5000/review/1
+  Response: {"testuser_ibm":"GreatBook-ThingsFallApart"}
+
+Test Result: PASS (HTTP 200, review added and verified)

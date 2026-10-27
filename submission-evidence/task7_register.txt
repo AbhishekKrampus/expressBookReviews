@@ -1,0 +1,15 @@
+﻿TASK 7: Register a New User
+============================
+Command:
+  curl -X POST http://localhost:5000/register \
+       -H "Content-Type: application/json" \
+       -d '{"username":"testuser_ibm","password":"testpass123"}'
+
+Status Code: 200 OK
+
+Response:
+{
+  "message": "User successfully registered. Now you can login"
+}
+
+Test Result: PASS (HTTP 200, user registered successfully)

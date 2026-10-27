@@ -1,0 +1,20 @@
+﻿TASK 1: GitHub Repository Information
+======================================
+Command: gh repo view AbhishekKrampus/expressBookReview
+         (or: git remote -v inside cloned repo)
+
+Repository Information:
+  - Your fork URL     : https://github.com/AbhishekKrampus/expressBookReview
+  - Original IBM repo : https://github.com/ibm-developer-skills-network/expressBookReviews
+  - Fork of           : ibm-developer-skills-network/expressBookReviews
+  - Local clone path  : C:\Users\KRAMPUS\.gemini\antigravity\scratch\expressBookReview\final_project
+
+NOTE: Fork must be created at https://github.com/ibm-developer-skills-network/expressBookReviews
+      Click Fork > Set owner to AbhishekKrampus > Create fork
+      This creates: https://github.com/AbhishekKrampus/expressBookReviews
+
+Git remote verification (run inside project folder):
+  git remote -v
+  Expected output:
+    origin  https://github.com/AbhishekKrampus/expressBookReviews.git (fetch)
+    origin  https://github.com/AbhishekKrampus/expressBookReviews.git (push)

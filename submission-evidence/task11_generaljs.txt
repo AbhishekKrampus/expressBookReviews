@@ -1,0 +1,28 @@
+﻿TASK 11: general.js - Axios Async Implementation
+=================================================
+GitHub URL (after push):
+  https://github.com/AbhishekKrampus/expressBookReviews/blob/master/final_project/router/general.js
+
+Local file path:
+  C:\Users\KRAMPUS\.gemini\antigravity\scratch\expressBookReview\final_project\router\general.js
+
+The file contains:
+  1. GET /               - Retrieve all books (synchronous)
+  2. GET /isbn/:isbn     - Get book by ISBN (synchronous)  
+  3. GET /author/:author - Get books by author (synchronous)
+  4. GET /title/:title   - Get books by title (synchronous)
+  5. GET /review/:isbn   - Get book reviews (synchronous)
+  6. POST /register      - Register new user (synchronous)
+  
+  Async/Axios routes (Task 10 - concurrent access):
+  7. GET /async/books          - All books using async/await + Axios
+  8. GET /async/isbn/:isbn     - Book by ISBN using async/await + Axios
+  9. GET /async/author/:author - Books by author using Promise + Axios
+  10. GET /async/title/:title  - Books by title using Promise + Axios
+
+The implementation uses:
+  - axios.get() with async/await (Tasks 7-8 in general.js)
+  - axios.get() with .then()/.catch() Promise chaining (Tasks 9-10 in general.js)
+  - Proper error handling in both patterns
+
+Test Result: PASS - All Axios async endpoints implemented and verified

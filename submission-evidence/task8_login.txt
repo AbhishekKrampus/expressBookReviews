@@ -1,0 +1,19 @@
+﻿TASK 8: Login as Registered User
+==================================
+Command:
+  curl -X POST http://localhost:5000/customer/login \
+       -H "Content-Type: application/json" \
+       -d '{"username":"testuser_ibm","password":"testpass123"}' \
+       -c cookies.txt
+
+Status Code: 200 OK
+
+Response:
+{
+  "message": "User successfully logged in"
+}
+
+Note: Session cookie is set automatically. JWT access token is stored in server session.
+No password or token is included in this evidence file.
+
+Test Result: PASS (HTTP 200, login successful, session established)
